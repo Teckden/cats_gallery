@@ -4,6 +4,7 @@ source 'https://rails-assets.org'
 gem 'rails', '4.1.1'
 gem 'pg'
 gem 'devise'
+gem 'paperclip'
 
 # Assets
 gem 'haml-rails'
