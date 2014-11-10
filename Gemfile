@@ -5,6 +5,7 @@ gem 'rails', '4.1.1'
 gem 'pg'
 gem 'devise'
 gem 'paperclip'
+gem 'acts-as-taggable-on', '~> 3.4'
 
 # Assets
 gem 'haml-rails'
