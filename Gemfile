@@ -7,6 +7,8 @@ gem 'rails', '4.1.1'
 gem 'pg'
 gem 'devise'
 gem 'paperclip'
+gem 'aws-sdk'
+gem 's3_direct_upload'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'sunspot_rails'
 group :development do
