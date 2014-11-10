@@ -1,2 +1,8 @@
-%h1 Photos#edit
-%p Find me in app/views/photos/edit.html.haml
+.col-md-6.col-md-offset-3
+  %h1 Edit Photo
+
+  = form_for @photo, url: photo_path, method: :put, html: {multipart: true} do |f|
+    - if @photo.image.exists?
+      %h4 Image
+      = image_tag @photo.image.url(:thumb)
+    = render partial: 'form', locals: {f: f}

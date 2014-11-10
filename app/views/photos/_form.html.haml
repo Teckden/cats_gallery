@@ -1,0 +1,12 @@
+- if @photo.errors.any?
+  %ul.list-unstyled.alert.alert-danger
+    - @photo.errors.full_messages.each do |message|
+      %li= message
+.form-group
+  = f.label :title
+  = f.text_field :title, class: 'form-control'
+.form-group
+  = f.label :image
+  = f.file_field :image
+.actions
+  = f.submit 'Submit', class: 'btn btn-primary'

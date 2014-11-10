@@ -1,2 +1,7 @@
-%h1 Photos#index
-%p Find me in app/views/photos/index.html.haml
+%h1.text-center Photos uploaded by you
+.row
+  - @photos.each do |photo|
+    .col-md-2
+      .pull-left.thumbnail= image_tag photo.image.url(:thumb)
+      %span= link_to '', edit_photo_path(photo), class: 'glyphicon glyphicon-pencil'
+      %span= link_to '', photo_path(photo), data: {confirm: 'Are you sure?'}, method: :delete, class: 'glyphicon glyphicon-remove'
