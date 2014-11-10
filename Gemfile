@@ -6,6 +6,10 @@ gem 'pg'
 gem 'devise'
 gem 'paperclip'
 gem 'acts-as-taggable-on', '~> 3.4'
+gem 'sunspot_rails'
+group :development do
+  gem 'sunspot_solr'
+end
 
 # Assets
 gem 'haml-rails'
