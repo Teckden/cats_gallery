@@ -11,6 +11,11 @@
       .navbar.navbar-default
         = link_to 'Cats', root_path, class: 'navbar-brand'
         - if user_signed_in?
+          = form_tag search_index_path, method: :get, class: 'navbar-form navbar-left' do
+            .form-group
+              = text_field_tag :term, nil, placeholder: 'Enter a search phrase', class: 'form-control'
+            = submit_tag 'Search', class: 'btn btn-default'
+
           .container-fluid
             %ul.nav.navbar-nav.navbar-right
               %li= link_to 'My Photos', photos_path
