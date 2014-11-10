@@ -19,6 +19,12 @@ Dir["./spec/support/**/*.rb"].sort.each { |f| require f}
 RSpec.configure do |config|
   config.include Devise::TestHelpers, :type => :controller
   config.extend ControllerHelpers, :type => :controller
+  config.before(:each) do
+    ::Sunspot.session = ::Sunspot::Rails::StubSessionProxy.new(::Sunspot.session)
+  end
+  config.after(:each) do
+    ::Sunspot.session = ::Sunspot.session.original_session
+  end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.

@@ -7,4 +7,9 @@ class Photo < ActiveRecord::Base
   validates :title, presence: true
   validates :image, presence: true, if: "image.blank?"
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+
+  searchable do
+    text :title, :tag_list
+  end
+
 end

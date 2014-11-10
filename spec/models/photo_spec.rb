@@ -15,4 +15,9 @@ RSpec.describe Photo, :type => :model do
       expect(photo.valid?).to eq true
     end
   end
+
+  describe 'searchable fields' do
+    it { should have_searchable_field(:title) }
+    it { should have_searchable_field(:tag_list) }
+  end
 end
