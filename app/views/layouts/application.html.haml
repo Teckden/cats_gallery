@@ -7,7 +7,22 @@
     = csrf_meta_tags
   %body
 
-    .alert.alert-success= notice
-    .alert.alert-danger= alert
+    .col-md-8.col-md-offset-2
+      .navbar.navbar-default
+        = link_to 'Cats', root_path, class: 'navbar-brand'
+        - if user_signed_in?
+          .container-fluid
+            %ul.nav.navbar-nav.navbar-right
+              %li= link_to 'My Photos', photos_path
+              %li= link_to 'New Photo', new_photo_path
+              %li= link_to 'Sign out', destroy_user_session_path, method: :delete
+        - else
+          %ul.nav.navbar-nav
+            %li= link_to 'Sign in', new_user_session_path
 
-    = yield
+      - if notice
+        .alert.alert-success= notice
+      - if alert
+        .alert.alert-danger= alert
+
+      = yield
